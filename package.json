@@ -1,0 +1,26 @@
+{
+  "name": "asm-angular-lazy-background",
+  "main": "dist/asm-angular-lazy-background.js",
+  "version": "0.0.0",
+  "description": "A lazy load directive for background images",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "authors": [
+    "Ander Suarez <me@andersuarez.com>",
+    "Jinn App"
+  ],
+  "keywords": [
+    "angular",
+    "directive",
+    "lazy",
+    "background"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-watch": "^4.3.5"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="lazy-example">
+    <head>
+        <meta charset="utf-8">
+        <title>Asm angular lazy backgound example</title>
+
+        <script src="../bower_components/angular/angular.js" charset="utf-8"></script>
+        <script src="index.js" charset="utf-8"></script>
+        <!-- Development stuff -->
+        <script src="../src/module.js" charset="utf-8"></script>
+        <script src="../src/directive.js" charset="utf-8"></script>
+
+    </head>
+    <body>
+      <div ng-controller="ExampleController as exampleController">
+        <h1>{{exampleController.myName}}</h1>
+        <div asm-angular-lazy-background asm-img-src="image.jpg" style="width: 300px; height: 500px;">
+
+        </div>
+      </div>
+    </body>
+</html>
