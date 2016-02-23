@@ -14,11 +14,6 @@
       scope.imageSource = atributes.asmImgSrc;
     }
 
-    function setBackgroundImage(element, imageSource) {
-      element.style.backgroundSize = 'cover';
-      element.style.background = 'url(' + imageSource + ') no-repeat center center';
-    }
-
     var directive = {
       restrict: 'A',
       scope: {
@@ -28,9 +23,35 @@
 
     return directive;
 
-    function link($scope, $elem, $attrs) {
-      setScope($scope, $elem, $attrs);
-      setBackgroundImage($scope.el, $scope.imageSource);
+    function link(scope, elem, attrs) {
+
+      setScope(scope, elem, attrs);
+      $timeout(function () {
+        scope.createImage();
+      }, 3000);
+
+      scope.setBackgroundImage = function (element, imageSource) {
+        element.style.backgroundSize = 'cover';
+        element.style.background = 'url(' + imageSource + ') no-repeat center center';
+      };
+
+      scope.createImage = function () {
+        var newImage = new Image();
+        newImage.src = scope.imageSource;
+        newImage.onload = scope.onImageLoad;
+      };
+
+      scope.subscribeToEvents = function () {
+
+      };
+
+      scope.unsuscribeToEvents = function () {
+
+      };
+
+      scope.onImageLoad = function () {
+        scope.setBackgroundImage(scope.el, scope.imageSource);
+      };
     }
   }
 
