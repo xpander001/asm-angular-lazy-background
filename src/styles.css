@@ -1,4 +1,14 @@
-.fadeImage {
-  background: none;
-  
+.asm-ang-lazy-bg {
+  background-image: none;
+  background: no-repeat center center;
+  background-size: 'cover';
+  opacity: 0;
+  -webkit-transition-property: opacity 100ms ease-in 100ms;
+  -moz-transition-property: opacity 100ms ease-in 100ms;
+  -o-transition-property: opacity 100ms ease-in 100ms;
+  transition: opacity 100ms ease-in 100ms;
+}
+
+.asm-ang-lazy-bg.loaded {
+  opacity: 1;
 }

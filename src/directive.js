@@ -9,11 +9,6 @@
   /* @ngInject */
   function asmAngularLazyBackground($window, $document, $timeout) {
 
-    function setScope(scope, element, atributes) {
-      scope.el = element[0];
-      scope.imageSource = atributes.asmImgSrc;
-    }
-
     var directive = {
       restrict: 'A',
       scope: {
@@ -26,32 +21,45 @@
     function link(scope, elem, attrs) {
 
       setScope(scope, elem, attrs);
+      elem.addClass('asm-ang-lazy-bg');
       $timeout(function () {
-        scope.createImage();
+        createImage(scope.imageSource, function () {
+          return onImageLoad(scope.el, scope.imageSource);
+        });
       }, 3000);
 
-      scope.setBackgroundImage = function (element, imageSource) {
-        element.style.backgroundSize = 'cover';
-        element.style.background = 'url(' + imageSource + ') no-repeat center center';
-      };
+      /* Private functions */
 
-      scope.createImage = function () {
+      function setScope(scope, element, atributes) {
+        scope.el = element;
+        scope.imageSource = atributes.asmImgSrc;
+      }
+
+      function setBackgroundImage(element, imageSource) {
+        element.css({
+          backgroundImage: 'url(' + imageSource + ')',
+        });
+      }
+
+      function createImage(source, onLoadCallback) {
         var newImage = new Image();
-        newImage.src = scope.imageSource;
-        newImage.onload = scope.onImageLoad;
-      };
+        newImage.src = source;
+        newImage.onload = onLoadCallback;
+        return newImage;
+      }
 
-      scope.subscribeToEvents = function () {
+      function subscribeToEvents() {
 
-      };
+      }
 
-      scope.unsuscribeToEvents = function () {
+      function unsuscribeToEvents() {
 
-      };
+      }
 
-      scope.onImageLoad = function () {
-        scope.setBackgroundImage(scope.el, scope.imageSource);
-      };
+      function onImageLoad(element, imageSource) {
+        setBackgroundImage(element, imageSource);
+        element.addClass('loaded');
+      }
     }
   }
 
