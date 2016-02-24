@@ -22,11 +22,9 @@
 
       setScope(scope, elem, attrs);
       elem.addClass('asm-ang-lazy-bg');
-      $timeout(function () {
-        createImage(scope.imageSource, function () {
-          return onImageLoad(scope.el, scope.imageSource);
-        });
-      }, 3000);
+      createImage(scope.imageSource, function () {
+        return onImageLoad(scope.el, scope.imageSource);
+      });
 
       /* Private functions */
 
