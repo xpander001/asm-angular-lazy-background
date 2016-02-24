@@ -10,3 +10,15 @@
   -o-transition-property: opacity 100ms ease-in 100ms;
   transition: opacity 100ms ease-in 100ms;*/
 }
+
+.asm-ang-lazy-bg.loaded {
+  -webkit-animation:0.5s my_animation;
+  -moz-animation:0.5s my_animation;
+  -o-animation:0.5s my_animation;
+  animation:0.5s my_animation;
+}
+
+@keyframes my_animation {
+  from { opacity:0; }
+  to { opacity:1; }
+}
