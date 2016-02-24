@@ -12,6 +12,7 @@
     var directive = {
       restrict: 'A',
       scope: {
+        hasFadeEffect: '@hasFadeEffect',
       },
       link: link,
     };
@@ -56,7 +57,9 @@
 
       function onImageLoad(element, imageSource) {
         setBackgroundImage(element, imageSource);
-        element.addClass('loaded');
+        if (scope.hasFadeEffect) {
+          element.addClass('fade');
+        }
       }
     }
   }

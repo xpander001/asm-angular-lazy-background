@@ -1,6 +1,6 @@
 {
   "name": "asm-angular-lazy-background",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "./dist/asm-angular-lazy-background.js",
   "description": "A lazy load directive for background images",
   "scripts": {

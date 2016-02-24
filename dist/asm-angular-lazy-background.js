@@ -19,6 +19,7 @@
     var directive = {
       restrict: 'A',
       scope: {
+        hasFadeEffect: '@hasFadeEffect',
       },
       link: link,
     };
@@ -29,11 +30,9 @@
 
       setScope(scope, elem, attrs);
       elem.addClass('asm-ang-lazy-bg');
-      $timeout(function () {
-        createImage(scope.imageSource, function () {
-          return onImageLoad(scope.el, scope.imageSource);
-        });
-      }, 3000);
+      createImage(scope.imageSource, function () {
+        return onImageLoad(scope.el, scope.imageSource);
+      });
 
       /* Private functions */
 
@@ -65,7 +64,9 @@
 
       function onImageLoad(element, imageSource) {
         setBackgroundImage(element, imageSource);
-        element.addClass('loaded');
+        if (scope.hasFadeEffect) {
+          element.addClass('fade');
+        }
       }
     }
   }

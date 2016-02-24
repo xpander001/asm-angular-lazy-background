@@ -1,7 +1,7 @@
 {
   "name": "asm-angular-lazy-background",
   "main": "dist/asm-angular-lazy-background.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A lazy load directive for background images",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

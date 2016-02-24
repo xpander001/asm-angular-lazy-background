@@ -4,7 +4,7 @@
   background-size: 'cover';
 }
 
-.asm-ang-lazy-bg.loaded {
+.asm-ang-lazy-bg.fade {
   -webkit-animation:0.5s fade ease-out;
   -moz-animation:0.5s fade ease-out;
   -o-animation:0.5s fade ease-out;
