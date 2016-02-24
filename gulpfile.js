@@ -34,8 +34,10 @@ gulp.task('build-js', function () {
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
     .pipe(ngAnnotate())
-    .pipe(uglify())
     .pipe(concat(appConfig.name + '.js'))
+    .pipe(gulp.dest('dist'))
+    .pipe(uglify())
+    .pipe(concat(appConfig.name + '.min.js'))
     .pipe(gulp.dest('dist'));
 });
 
