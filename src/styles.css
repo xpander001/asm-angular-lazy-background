@@ -5,20 +5,13 @@
 }
 
 .asm-ang-lazy-bg.loaded {
-  /*-webkit-transition-property: opacity 100ms ease-in 100ms;
-  -moz-transition-property: opacity 100ms ease-in 100ms;
-  -o-transition-property: opacity 100ms ease-in 100ms;
-  transition: opacity 100ms ease-in 100ms;*/
+  -webkit-animation:0.5s fade ease-out;
+  -moz-animation:0.5s fade ease-out;
+  -o-animation:0.5s fade ease-out;
+  animation:0.5s fade ease-out;
 }
 
-.asm-ang-lazy-bg.loaded {
-  -webkit-animation:0.5s my_animation;
-  -moz-animation:0.5s my_animation;
-  -o-animation:0.5s my_animation;
-  animation:0.5s my_animation;
-}
-
-@keyframes my_animation {
+@keyframes fade {
   from { opacity:0; }
   to { opacity:1; }
 }
